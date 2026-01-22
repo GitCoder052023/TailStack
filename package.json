@@ -1,0 +1,29 @@
+{
+  "name": "TailStack",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "concurrently \"pnpm --filter ./source/WebApp/app dev\" \"pnpm --filter ./source/WebApp/Server dev\"",
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "*": [
+      "gitleaks protect --staged --redact"
+    ]
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.12.1",
+  "devDependencies": {
+    "@commitlint/cli": "^20.3.1",
+    "@commitlint/config-conventional": "^20.3.1",
+    "concurrently": "^9.2.1",
+    "gitleaks": "^1.0.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.2.7",
+    "nodemon": "^3.1.11"
+  }
+}
