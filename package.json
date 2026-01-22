@@ -1,11 +1,11 @@
 {
-  "name": "TailStack",
+  "name": "tailstack",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "concurrently \"pnpm --filter ./source/WebApp/app dev\" \"pnpm --filter ./source/WebApp/Server dev\"",
+    "dev": "concurrently \"pnpm --filter ./source/frontend dev\" \"pnpm --filter ./source/Server dev\"",
     "prepare": "husky"
   },
   "lint-staged": {
@@ -15,7 +15,7 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "packageManager": "pnpm@10.12.1",
   "devDependencies": {
     "@commitlint/cli": "^20.3.1",
