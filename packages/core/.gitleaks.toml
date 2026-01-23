@@ -1,0 +1,17 @@
+title = "TailStack Security Rules"
+
+[allowlist]
+description = "Allow non-secret config files"
+paths = [
+  ".env.example",
+  "tsconfig.app.json",
+  "tsconfig.node.json",
+  "package.json",
+  "pnpm-lock.yaml",
+  "pnpm-workspace.yaml"
+]
+
+[[rules]]
+id = "block-node-modules"
+description = "Block node_modules usage"
+regex = '''node_modules/'''
