@@ -53,7 +53,6 @@ TailStack allows you to focus on code, not configuration:
 - ** Shell Scripts**: Automated utilities for repetitive tasks (in `scripts/`).
 - ** Documentation**: Ready-to-use `CONTRIBUTING.md`, `CODE_OF_CONDUCT.md`, and `SECURITY.md`.
 - ** Configs**: Standardized `.npmrc`, `.nvmrc`, and `.node-version` for consistent environments.
-- ** Code Quality**: Prettier and ESLint configured for auto-formatting and linting.
 
 ## Project Structure
 
