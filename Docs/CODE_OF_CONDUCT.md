@@ -14,7 +14,7 @@
 
 ## Our Pledge
 
-We as members, contributors, and maintainers of **<your-project-name>** pledge to make participation in our community a harassment-free experience for everyone, regardless of age, body size, disability, ethnicity, gender identity and expression, level of experience, nationality, personal appearance, race, religion, or sexual identity and orientation.
+We as members, contributors, and maintainers of **TailStack** pledge to make participation in our community a harassment-free experience for everyone, regardless of age, body size, disability, ethnicity, gender identity and expression, level of experience, nationality, personal appearance, race, religion, or sexual identity and orientation.
 
 ---
 
@@ -45,7 +45,7 @@ This Code of Conduct applies within all project spaces, including:
 - GitHub repositories
 - Issues, pull requests, and discussions
 - Community communication channels
-- Any situation where an individual represents the <your-project-name> community
+- Any situation where an individual represents the TailStack community
 
 ---
 
@@ -62,7 +62,7 @@ Enforcement actions may include:
 
 ## Reporting
 
-If you experience or witness unacceptable behavior, please report it by contacting: **youremailaddress@gmail.com**
+If you experience or witness unacceptable behavior, please report it by contacting: **hamdankhubaib959@gmail.com**
 
 All complaints will be reviewed and investigated promptly and fairly. The maintainers are committed to respecting the privacy and security of the reporter.
 
@@ -70,7 +70,7 @@ All complaints will be reviewed and investigated promptly and fairly. The mainta
 
 ## Related Documents
 
-- [Contributing Guide](/Docs/CONTRIBUTING.md) - How to contribute to <your-project-name>
+- [Contributing Guide](/Docs/CONTRIBUTING.md) - How to contribute to TailStack
 - [Security Policy](/Docs/SECURITY.md) - Reporting security vulnerabilities
 
 ---

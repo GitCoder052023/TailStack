@@ -1,14 +1,14 @@
 # Security Policy
 
-The <your-project-name> project takes security seriously and values responsible disclosure from the community.
+The TailStack project takes security seriously and values responsible disclosure from the community.
 
 ---
 
 ## Reporting a Vulnerability
 
-If you discover a security vulnerability in <your-project-name>, please report it responsibly.
+If you discover a security vulnerability in TailStack, please report it responsibly.
 
- **Email:** youremailaddress@gmail.com
+ **Email:** hamdankhubaib959@gmail.com
 
 Please include:
 - A detailed description of the issue
@@ -45,10 +45,10 @@ We kindly ask reporters to avoid public disclosure until a fix has been released
 ## Related Documents
 
 - [Code of Conduct](/Docs/CODE_OF_CONDUCT.md) - Community standards and expectations
-- [Contributing Guide](/Docs/CONTRIBUTING.md) - How to contribute to <your-project-name>
+- [Contributing Guide](/Docs/CONTRIBUTING.md) - How to contribute to TailStack
 
 ---
 
 ## Thanks
 
-Thank you for helping keep **<your-project-name>** secure.
+Thank you for helping keep **TailStack** secure.

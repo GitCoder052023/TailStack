@@ -1,6 +1,6 @@
-# Contributing to <your-project-name>
+# Contributing to TailStack
 
-Thank you for your interest in contributing to **<your-project-name>** 🚀  
+Thank you for your interest in contributing to **TailStack** 🚀  
 Community contributions are welcome and greatly appreciated.
 
 > **Before you contribute**, please review our [Code of Conduct](/Docs/CODE_OF_CONDUCT.md) and [Security Policy](/Docs/SECURITY.md).
@@ -20,7 +20,7 @@ Community contributions are welcome and greatly appreciated.
 
 ## Who Can Contribute?
 
-Anyone can contribute to <your-project-name> — beginners and experienced developers alike.
+Anyone can contribute to TailStack — beginners and experienced developers alike.
 
 You can help by:
 - Fixing bugs
@@ -32,7 +32,7 @@ You can help by:
 
 ## License & Contribution Terms
 
-<your-project-name> is licensed under the **MIT License**.
+TailStack is licensed under the **MIT License**.
 
 By submitting a contribution, you agree that:
 - Your contribution will be licensed under the **MIT License**
@@ -48,7 +48,7 @@ You retain the copyright to your work while granting the project the right to us
 1. Fork the repository
 2. Clone your fork:
    ```bash
-   git clone https://github.com/your-name/<your-project-name>.git
+   git clone https://github.com/your-name/TailStack.git
 ````
 
 3. Create a new branch:
@@ -88,6 +88,6 @@ For security vulnerabilities, refer to our [Security Policy](/Docs/SECURITY.md).
 
 If you're unsure about something:
 
-* Open a [GitHub Discussion](https://github.com/your-name/<your-project-name>/discussions) or [Issue](https://github.com/your-name/<your-project-name>/issues) 
+* Open a [GitHub Discussion](https://github.com/your-name/TailStack/discussions) or [Issue](https://github.com/your-name/TailStack/issues) 
 
 We’re happy to help 🙂

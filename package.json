@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "concurrently \"pnpm --filter ./source/frontend dev\" \"pnpm --filter ./source/Server dev\"",
+    "gitleaks-verbose": "gitleaks detect --source . --verbose",
     "husky": "pnpm exec husky init"
   },
   "lint-staged": {
