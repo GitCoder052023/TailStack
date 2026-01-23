@@ -8,11 +8,11 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](Docs/CONTRIBUTING.md)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue.svg)](https://www.typescriptlang.org/)
-[![Vite](https://img.shields.io/badge/Vite-4.0-646CFF.svg)](https://vitejs.dev/)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.0-38B2AC.svg)](https://tailwindcss.com/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.x-blue.svg)](https://www.typescriptlang.org/)
+[![Vite](https://img.shields.io/badge/Vite-6.x-646CFF.svg)](https://vitejs.dev/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind-4.x-38B2AC.svg)](https://tailwindcss.com/)
 
-[Report Bug](https://github.com/yourusername/tailstack/issues) · [Request Feature](https://github.com/yourusername/tailstack/issues)
+[Report Bug](https://github.com/GitCoder052023/TailStack/issues) · [Request Feature](https://github.com/GitCoder052023/TailStack/issues)
 
 </div>
 
@@ -30,96 +30,101 @@ It implements the **TailStack Architecture**—a proven structure I personally u
 
 ### Frontend (Client)
 Experience a modern, lightning-fast development environment:
-- ** Vite**: Next-generation frontend tooling.
-- ** React**: Built on the world's most popular UI library.
-- ** Tailwind CSS**: Utility-first CSS for rapid UI development.
-- ** Shadcn UI**: Reusable, accessible, and customizable components.
-- ** Lucide React**: Beautiful & consistent icons.
-- ** Sonner**: An opinionated toast component for React.
-- ** React Router**: Declarative routing for your application.
-- ** Weather App Demo**: Includes a fully functional multi-page weather application to showcase the architecture.
+- **Vite**: Next-generation frontend tooling.
+- **React**: Built on the world's most popular UI library.
+- **Tailwind CSS**: Utility-first CSS for rapid UI development.
+- **Shadcn UI**: Reusable, accessible, and customizable components.
+- **Lucide React**: Beautiful & consistent icons.
+- **Sonner**: An opinionated toast component for React.
+- **React Router**: Declarative routing for your application.
+- **Weather App Demo**: Includes a fully functional multi-page weather application to showcase the architecture.
 
 ###  Backend (Server)
 A robust and scalable server-side foundation:
-- ** Express**: Fast, unopinionated, minimalist web framework for Node.js.
-- ** TypeScript**: Type safety for reliable and maintainable code.
-- ** Node Cluster**: Utilizes multi-core systems for maximum performance.
-- ** Security**: Pre-configured **CORS** and security best practices.
+- **Express**: Fast, unopinionated, minimalist web framework for Node.js.
+- **TypeScript**: Type safety for reliable and maintainable code.
+- **Node Cluster**: Utilizes multi-core systems for maximum performance.
+- **Security**: Pre-configured **CORS** and security best practices.
 
 ###  Monorepo & DevOps Tools
 TailStack allows you to focus on code, not configuration:
-- ** Commitlint**: Enforces Conventional Commits for clean history.
-- ** Husky**: Git hooks for pre-commit linting and security checks.
-- ** Shell Scripts**: Automated utilities for repetitive tasks (in `scripts/`).
-- ** Documentation**: Ready-to-use `CONTRIBUTING.md`, `CODE_OF_CONDUCT.md`, and `SECURITY.md`.
-- ** Configs**: Standardized `.npmrc`, `.nvmrc`, and `.node-version` for consistent environments.
+- **Commitlint**: Enforces Conventional Commits for clean history.
+- **Husky**: Git hooks for pre-commit linting and security checks.
+- **Shell Scripts**: Automated utilities for repetitive tasks (in `scripts/`).
+- **Documentation**: Ready-to-use `CONTRIBUTING.md`, `CODE_OF_CONDUCT.md`, and `SECURITY.md`.
+- **Configs**: Standardized `.npmrc`, `.nvmrc`, and `.node-version` for consistent environments.
 
-## Project Structure
+## Packages
 
-A glimse into the **TailStack** organization:
+TailStack provides three distinct architecture templates within the `packages/` directory:
 
-```bash
-TailStack/
-├── assets/                 # Static assets (images, logos)
-├── Docs/                   # Application & Community documentation
-│   ├── CODE_OF_CONDUCT.md
-│   ├── CONTRIBUTING.md
-│   └── SECURITY.md
-├── scripts/                # internal shell automation scripts
-├── source/
-│   ├── frontend/           # The Vite+React Client Application
-│   │   ├── src/
-│   │   │   ├── components/ # Shadcn UI & Custom Components
-│   │   │   ├── pages/      # pages
-│   │   │   └── ...
-│   │   └── vite.config.ts
-│   └── Server/             # The Express+TS Backend Application
-│       ├── src/
-│       │   ├── cluster/    # Node Cluster logic
-│       │   ├── routes/     # API Routes
-│       │   └── ...
-│       └── tsconfig.json
-├── .husky/                 # Git hooks configuration
-├── package.json            # Root workspace configuration
-└── README.md
-```
+### 1. [Core](./packages/core) (Monorepo)
+The flagship **TailStack Architecture**. A complete monorepo setup featuring an **ERN Stack** (Express, React, Node.js) with pre-configured inter-service communication, shared configurations, and deployment-ready workflows.
+- **Best for**: Full-stack applications, startups, and complex projects requiring a unified codebase.
+
+### 2. [React](./packages/react) (Frontend Only)
+A focused frontend project architecture based on **Vite + React**. It includes a premium UI setup with Tailwind CSS 4, Shadcn UI, and modern routing.
+- **Best for**: Client-side applications, dashboards, and landing pages.
+
+### 3. [Node](./packages/node) (Backend Only)
+A robust backend foundation using **Express + TypeScript**. It features advanced Node.js optimizations like clustering, security best practices, and a clean directory structure.
+- **Best for**: REST APIs, microservices, and backend-only utilities.
+
+---
 
 ## Getting Started
 
-### Prerequisites
-Ensure you have the following installed:
-- **pnpm** (TailStack uses pnpm)
+TailStack is distributed as a set of standalone templates. You can quickly scaffold a new project by pulling a specific architecture directly from the `packages/` directory using `npx degit` or `curl`. This allows you to start a new project with a clean Git history.
 
-### Installation
+### Quick Start (Recommended)
 
-1.  **Clone the repository**
-    ```bash
-    git clone https://github.com/GitCoder052023/TailStack.git
-    cd TailStack
-    ```
-
-2.  **Install Dependencies**
-    ```bash
-    pnpm install
-    ```
-
-3.  **Environment Setup**
-    Navigate to `source/frontend` and `source/Server`, and rename `.env.example` to `.env`. Update variables as needed.
-
-### Running the Application
-
-To start both the client and server concurrently in development mode:
+Run the following command in your terminal, replacing `<template>` with `core`, `react`, or `node`, and `<project-name>` with your desired folder name.
 
 ```bash
-npm run dev
+# Usage: npx degit GitCoder052023/TailStack/packages/<template> <project-name>
+
+# Example: Scaffold the full ERN Monorepo
+npx degit GitCoder052023/TailStack/packages/core my-awesome-app
+
+# Example: Scaffold only the React Frontend into the current directory
+npx degit GitCoder052023/TailStack/packages/react .
+
 ```
 
-- **Frontend**: Accessible at `http://localhost:5173`
-- **Backend**: API server running on `http://localhost:3000` (or your configured port)
+### Method B: Using curl (Lightweight / No Node.js required)
 
-## 🤝 Contributing
+If you don't have Node.js installed or prefer a shell-native way, use this command to download and extract only the specific package:
 
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+```bash
+# Usage: replace <template> with core, react, or node
+curl -L https://github.com/GitCoder052023/TailStack/archive/refs/heads/main.tar.gz | tar -xz --strip-components=2 TailStack-main/packages/<template>
+
+```
+
+### Manual Installation
+
+If you prefer to explore the entire repository or contribute to the project, you can clone the monorepo manually:
+
+1. **Clone the repository:**
+```bash
+git clone https://github.com/GitCoder052023/TailStack.git
+
+```
+
+
+2. **Navigate to your desired architecture:**
+```bash
+cd TailStack/packages/[core|react|node]
+
+```
+
+
+3. **Initialize dependencies:**
+Follow the specific `README.md` instructions found within each package directory to set up environment and start development within that template.
+
+## Contributing
+
+Contributions are what make the open-source community such an amazing place. We welcome improvements to any of our templates! Please see [CONTRIBUTING.md](Docs/CONTRIBUTING.md) for details.
 
 ---
 
