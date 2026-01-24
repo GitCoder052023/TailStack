@@ -5,3 +5,4 @@ export * from './routes';
 export * from './errors';
 export * from './httpStatus';
 export * from './config';
+export * from './cluster';
