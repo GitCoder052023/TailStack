@@ -3,7 +3,8 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
 import { CodeBlock } from '@/components/ui/code-block';
-import { ArrowLeft, ArrowRight, AlertCircle, CheckCircle2 } from 'lucide-react';
+import { PrerequisiteItem } from '@/components/docs/prerequisite-item';
+import { ArrowLeft, ArrowRight, CheckCircle2 } from 'lucide-react';
 
 export function GettingStartedPage() {
   return (
@@ -173,23 +174,5 @@ export function GettingStartedPage() {
         </Button>
       </div>
     </div>
-  );
-}
-
-interface PrerequisiteItemProps {
-  children: React.ReactNode;
-  checked?: boolean;
-}
-
-function PrerequisiteItem({ children, checked }: PrerequisiteItemProps) {
-  return (
-    <li className="flex items-center gap-3">
-      {checked ? (
-        <CheckCircle2 className="h-5 w-5 text-green-500" />
-      ) : (
-        <AlertCircle className="h-5 w-5 text-yellow-500" />
-      )}
-      <span className="text-sm">{children}</span>
-    </li>
   );
 }

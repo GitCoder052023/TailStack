@@ -1,65 +1,13 @@
-import { Link, Outlet, useLocation } from 'react-router-dom';
+import { Outlet, useLocation } from 'react-router-dom';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import { DocsSidebar } from '@/components/docs/sidebar';
 import { Menu } from 'lucide-react';
-import { cn } from '@/lib/utils';
 import { useState } from 'react';
-import { docsSections } from '@/constants/DocsSections';
 
 export function DocsPage() {
   const location = useLocation();
   const [sidebarOpen, setSidebarOpen] = useState(false);
-
-  const isActive = (path: string) => location.pathname === path;
-
-  const SidebarContent = () => (
-    <div className="w-full ml-5">
-      <div className="pb-4">
-        <h4 className="mb-1 rounded-md px-2 py-1 text-sm font-semibold">
-          Getting Started
-        </h4>
-        <div className="grid grid-flow-row auto-rows-max text-sm">
-          {docsSections.slice(0, 2).map((section) => (
-            <Link
-              key={section.path}
-              to={section.path}
-              onClick={() => setSidebarOpen(false)}
-              className={cn(
-                "group flex w-full items-center rounded-md border border-transparent px-2 py-1.5 hover:underline",
-                isActive(section.path)
-                  ? "font-medium text-foreground"
-                  : "text-muted-foreground"
-              )}
-            >
-              {section.label}
-            </Link>
-          ))}
-        </div>
-      </div>
-      <div className="pb-4">
-        <h4 className="mb-1 rounded-md px-2 py-1 text-sm font-semibold">
-          Guides
-        </h4>
-        <div className="grid grid-flow-row auto-rows-max text-sm">
-          {docsSections.slice(2).map((section) => (
-            <Link
-              key={section.path}
-              to={section.path}
-              onClick={() => setSidebarOpen(false)}
-              className={cn(
-                "group flex w-full items-center rounded-md border border-transparent px-2 py-1.5 hover:underline",
-                isActive(section.path)
-                  ? "font-medium text-foreground"
-                  : "text-muted-foreground"
-              )}
-            >
-              {section.label}
-            </Link>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
 
   return (
     <div className="container flex-1">
@@ -72,7 +20,10 @@ export function DocsPage() {
           </SheetTrigger>
           <SheetContent side="left" className="w-[240px] pr-0">
             <ScrollArea className="my-4 h-[calc(100vh-8rem)] pb-10">
-              <SidebarContent />
+              <DocsSidebar
+                onItemClick={() => setSidebarOpen(false)}
+                pathname={location.pathname}
+              />
             </ScrollArea>
           </SheetContent>
         </Sheet>
@@ -80,7 +31,7 @@ export function DocsPage() {
         {/* Desktop Sidebar */}
         <aside className="fixed top-14 z-30 -ml-2 hidden h-[calc(100vh-3.5rem)] w-full shrink-0 md:sticky md:block">
           <ScrollArea className="h-full py-6 pr-6 lg:py-8">
-            <SidebarContent />
+            <DocsSidebar pathname={location.pathname} />
           </ScrollArea>
         </aside>
 

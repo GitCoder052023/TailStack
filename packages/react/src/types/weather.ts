@@ -25,3 +25,10 @@ export interface WeatherData {
   };
 }
 
+export interface WeatherMetricProps {
+  icon: React.ReactNode;
+  label: string;
+  value: string;
+}
+
+

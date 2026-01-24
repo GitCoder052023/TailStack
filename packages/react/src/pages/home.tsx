@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
+import { FeatureCard } from '@/components/home/feature-card';
 import {
   ArrowRight,
   BookOpen,
@@ -127,31 +128,6 @@ export function HomePage() {
           />
         </div>
       </section>
-    </div>
-  );
-}
-
-// Feature Card Component
-interface FeatureCardProps {
-  icon: React.ReactNode;
-  title: string;
-  description: string;
-}
-
-function FeatureCard({ icon, title, description }: FeatureCardProps) {
-  return (
-    <div className="group relative overflow-hidden rounded-lg border bg-background p-6 transition-all hover:shadow-md">
-      <div className="flex flex-col gap-4">
-        <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-muted text-muted-foreground transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
-          {icon}
-        </div>
-        <div className="space-y-2">
-          <h3 className="font-semibold">{title}</h3>
-          <p className="text-sm text-muted-foreground leading-relaxed">
-            {description}
-          </p>
-        </div>
-      </div>
     </div>
   );
 }

@@ -1,8 +1,5 @@
 import { Navbar } from './navbar';
-
-interface MainLayoutProps {
-  children: React.ReactNode;
-}
+import type { MainLayoutProps } from '@/types/layout';
 
 export function MainLayout({ children }: MainLayoutProps) {
   return (

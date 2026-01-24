@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
 import { CodeBlock } from '@/components/ui/code-block';
+import { TechCard } from '@/components/docs/tech-card';
 import { ArrowLeft, Globe, Zap, Shield, Code } from 'lucide-react';
 
 export function BackendPage() {
@@ -124,27 +125,6 @@ export const weatherApi = {
           </Link>
         </Button>
         <div />
-      </div>
-    </div>
-  );
-}
-
-interface TechCardProps {
-  icon: React.ReactNode;
-  title: string;
-  description: string;
-  color: string;
-}
-
-function TechCard({ icon, title, description, color }: TechCardProps) {
-  return (
-    <div className="flex items-start gap-3 rounded-lg border bg-card p-4">
-      <div className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-muted ${color}`}>
-        {icon}
-      </div>
-      <div>
-        <h3 className="font-medium">{title}</h3>
-        <p className="text-sm text-muted-foreground">{description}</p>
       </div>
     </div>
   );

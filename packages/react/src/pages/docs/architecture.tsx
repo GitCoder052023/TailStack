@@ -1,7 +1,9 @@
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
-import { ArrowLeft, ArrowRight, Layers, ArrowDown, Globe, Code2 } from 'lucide-react';
+import { PatternCard } from '@/components/docs/pattern-card';
+import { FlowStep, FlowArrow } from '@/components/docs/flow-step';
+import { ArrowLeft, ArrowRight, Layers } from 'lucide-react';
 
 export function ArchitecturePage() {
   return (
@@ -95,7 +97,7 @@ export function ArchitecturePage() {
             description="Decoupled API logic in src/api/ allowing components to remain focused on presentation."
           />
           <PatternCard
-            title="Type-First Development"
+            title="Type First Development"
             description="TypeScript interfaces define the contract for all data structures throughout the app."
           />
           <PatternCard
@@ -155,48 +157,6 @@ export function ArchitecturePage() {
           </Link>
         </Button>
       </div>
-    </div>
-  );
-}
-
-interface PatternCardProps {
-  title: string;
-  description: string;
-}
-
-function PatternCard({ title, description }: PatternCardProps) {
-  return (
-    <div className="rounded-lg border bg-card p-4">
-      <h3 className="font-medium mb-2">{title}</h3>
-      <p className="text-sm text-muted-foreground">{description}</p>
-    </div>
-  );
-}
-
-interface FlowStepProps {
-  number: number;
-  title: string;
-  children: React.ReactNode;
-}
-
-function FlowStep({ number, title, children }: FlowStepProps) {
-  return (
-    <div className="flex items-start gap-4">
-      <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground text-sm font-medium">
-        {number}
-      </div>
-      <div>
-        <h4 className="font-medium">{title}</h4>
-        <p className="text-sm text-muted-foreground">{children}</p>
-      </div>
-    </div>
-  );
-}
-
-function FlowArrow() {
-  return (
-    <div className="flex justify-center pl-4">
-      <ArrowDown className="h-4 w-4 text-muted-foreground" />
     </div>
   );
 }

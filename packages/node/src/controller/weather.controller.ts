@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
 import { WeatherService } from '../services/weather.service';
+import { ERROR_MESSAGES, HTTP_STATUS } from '../constant';
 
 export class WeatherController {
   /**
@@ -10,9 +11,9 @@ export class WeatherController {
       const { location } = req.query;
 
       if (!location || typeof location !== 'string') {
-        res.status(400).json({
-          error: 'Bad Request',
-          message: 'Location parameter is required',
+        res.status(HTTP_STATUS.BAD_REQUEST).json({
+          error: ERROR_MESSAGES.BAD_REQUEST,
+          message: ERROR_MESSAGES.LOCATION_REQUIRED,
         });
         return;
       }
@@ -20,9 +21,9 @@ export class WeatherController {
       const weatherData = await WeatherService.getWeatherByLocation(location);
       res.json(weatherData);
     } catch (error) {
-      const errorMessage = error instanceof Error ? error.message : 'Unknown error';
-      res.status(500).json({
-        error: 'Internal Server Error',
+      const errorMessage = error instanceof Error ? error.message : ERROR_MESSAGES.UNKNOWN_ERROR;
+      res.status(HTTP_STATUS.INTERNAL_SERVER_ERROR).json({
+        error: ERROR_MESSAGES.INTERNAL_SERVER_ERROR,
         message: errorMessage,
       });
     }
@@ -36,9 +37,9 @@ export class WeatherController {
       const { lat, lon } = req.query;
 
       if (!lat || !lon) {
-        res.status(400).json({
-          error: 'Bad Request',
-          message: 'Both lat and lon parameters are required',
+        res.status(HTTP_STATUS.BAD_REQUEST).json({
+          error: ERROR_MESSAGES.BAD_REQUEST,
+          message: ERROR_MESSAGES.LAT_LON_REQUIRED,
         });
         return;
       }
@@ -47,9 +48,9 @@ export class WeatherController {
       const longitude = parseFloat(lon as string);
 
       if (isNaN(latitude) || isNaN(longitude)) {
-        res.status(400).json({
-          error: 'Bad Request',
-          message: 'Lat and lon must be valid numbers',
+        res.status(HTTP_STATUS.BAD_REQUEST).json({
+          error: ERROR_MESSAGES.BAD_REQUEST,
+          message: ERROR_MESSAGES.INVALID_COORDINATES,
         });
         return;
       }
@@ -57,9 +58,9 @@ export class WeatherController {
       const weatherData = await WeatherService.getWeatherByCoordinates(latitude, longitude);
       res.json(weatherData);
     } catch (error) {
-      const errorMessage = error instanceof Error ? error.message : 'Unknown error';
-      res.status(500).json({
-        error: 'Internal Server Error',
+      const errorMessage = error instanceof Error ? error.message : ERROR_MESSAGES.UNKNOWN_ERROR;
+      res.status(HTTP_STATUS.INTERNAL_SERVER_ERROR).json({
+        error: ERROR_MESSAGES.INTERNAL_SERVER_ERROR,
         message: errorMessage,
       });
     }

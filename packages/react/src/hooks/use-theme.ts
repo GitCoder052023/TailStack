@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
-
-type Theme = 'light' | 'dark';
+import type { Theme } from '@/types/theme';
 
 export function useTheme() {
   const [theme, setTheme] = useState<Theme>(() => {
@@ -32,4 +31,3 @@ export function useTheme() {
 
   return { theme, toggleTheme, setTheme };
 }
-

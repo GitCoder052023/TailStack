@@ -1,9 +1,6 @@
 import axios from 'axios';
 import { WeatherData } from '../types/weather';
-
-// Using wttr.in - a free weather service that works with simple GET requests
-// No API key required, perfect for demo purposes
-const WEATHER_API_BASE_URL = 'https://wttr.in';
+import { WEATHER_API_BASE_URL, WEATHER_API_FORMAT, WEATHER_API_USER_AGENT } from '../constant/weather';
 
 export class WeatherService {
   /**
@@ -16,10 +13,10 @@ export class WeatherService {
         `${WEATHER_API_BASE_URL}/${encodeURIComponent(location)}`,
         {
           params: {
-            format: 'j1', // JSON format
+            format: WEATHER_API_FORMAT, // JSON format
           },
           headers: {
-            'User-Agent': 'TailStack Weather App',
+            'User-Agent': WEATHER_API_USER_AGENT,
           },
         }
       );
@@ -77,10 +74,10 @@ export class WeatherService {
         `${WEATHER_API_BASE_URL}/${lat},${lon}`,
         {
           params: {
-            format: 'j1', // JSON format
+            format: WEATHER_API_FORMAT, // JSON format
           },
           headers: {
-            'User-Agent': 'TailStack Weather App',
+            'User-Agent': WEATHER_API_USER_AGENT,
           },
         }
       );

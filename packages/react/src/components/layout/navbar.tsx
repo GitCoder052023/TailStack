@@ -5,18 +5,11 @@ import { ThemeToggle } from '@/components/theme-toggle';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import {
   Menu,
-  X,
-  BookOpen,
-  Cloud,
   Github,
   ChevronRight
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
-
-const navItems = [
-  { path: '/docs', label: 'Documentation', icon: BookOpen },
-  { path: '/weather', label: 'Weather', icon: Cloud },
-];
+import { navItems } from '@/constants/navigation';
 
 export function Navbar() {
   const location = useLocation();
