@@ -4,8 +4,10 @@ import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
 import { CodeBlock } from '@/components/ui/code-block';
 import { ArrowLeft, ArrowRight, AlertCircle, CheckCircle2 } from 'lucide-react';
+import type { PrerequisiteItemProps } from '@/types/docs';
 
 export function GettingStartedPage() {
+
   return (
     <div className="space-y-6">
       {/* Breadcrumb */}
@@ -187,11 +189,6 @@ export function GettingStartedPage() {
   );
 }
 
-interface PrerequisiteItemProps {
-  children: React.ReactNode;
-  checked?: boolean;
-}
-
 function PrerequisiteItem({ children, checked }: PrerequisiteItemProps) {
   return (
     <li className="flex items-center gap-3">
@@ -204,3 +201,4 @@ function PrerequisiteItem({ children, checked }: PrerequisiteItemProps) {
     </li>
   );
 }
+

@@ -1,16 +1,15 @@
-import { Link, Outlet, useLocation } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { Menu } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { useState } from 'react';
 import { docsSections } from '@/constants/DocsSections';
+import { useNavigation } from '@/hooks/use-navigation';
+import { useToggle } from '@/hooks/use-toggle';
 
 export function DocsPage() {
-  const location = useLocation();
-  const [sidebarOpen, setSidebarOpen] = useState(false);
-
-  const isActive = (path: string) => location.pathname === path;
+  const { isActive } = useNavigation();
+  const [sidebarOpen, , setSidebarOpen] = useToggle(false);
 
   const SidebarContent = () => (
     <div className="w-full ml-5">

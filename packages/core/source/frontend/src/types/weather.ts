@@ -1,3 +1,5 @@
+import { ReactNode } from 'react';
+
 export interface WeatherData {
   location: {
     name: string;
@@ -24,4 +26,11 @@ export interface WeatherData {
     vis_km: number;
   };
 }
+
+export interface WeatherMetricProps {
+  icon: ReactNode;
+  label: string;
+  value: string;
+}
+
 

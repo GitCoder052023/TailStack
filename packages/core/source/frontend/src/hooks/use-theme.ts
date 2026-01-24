@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
-
-type Theme = 'light' | 'dark';
+import type { Theme } from '@/types/theme';
 
 export function useTheme() {
+
   const [theme, setTheme] = useState<Theme>(() => {
     // Check localStorage first
     const stored = localStorage.getItem('theme') as Theme | null;

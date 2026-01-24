@@ -4,8 +4,10 @@ import { Separator } from '@/components/ui/separator';
 import { CodeBlock } from '@/components/ui/code-block';
 import { Badge } from '@/components/ui/badge';
 import { ArrowLeft, Server, Database, Shield, Zap } from 'lucide-react';
+import type { TechCardProps, EndpointCardProps, LayerCardProps } from '@/types/docs';
 
 export function BackendPage() {
+
   return (
     <div className="space-y-6">
       {/* Breadcrumb */}
@@ -199,13 +201,6 @@ export class WeatherService {
   );
 }
 
-interface TechCardProps {
-  icon: React.ReactNode;
-  title: string;
-  description: string;
-  color: string;
-}
-
 function TechCard({ icon, title, description, color }: TechCardProps) {
   return (
     <div className="flex items-start gap-3 rounded-lg border bg-card p-4">
@@ -218,13 +213,6 @@ function TechCard({ icon, title, description, color }: TechCardProps) {
       </div>
     </div>
   );
-}
-
-interface EndpointCardProps {
-  method: string;
-  endpoint: string;
-  description: string;
-  params: string;
 }
 
 function EndpointCard({ method, endpoint, description, params }: EndpointCardProps) {
@@ -249,12 +237,6 @@ function EndpointCard({ method, endpoint, description, params }: EndpointCardPro
   );
 }
 
-interface LayerCardProps {
-  title: string;
-  description: string;
-  code: string;
-}
-
 function LayerCard({ title, description, code }: LayerCardProps) {
   return (
     <div className="space-y-3">
@@ -262,7 +244,8 @@ function LayerCard({ title, description, code }: LayerCardProps) {
         <h3 className="font-medium">{title}</h3>
         <p className="text-sm text-muted-foreground">{description}</p>
       </div>
-      <CodeBlock code={code} language="typescript" />
+      <CodeBlock code={code || ""} language="typescript" />
     </div>
   );
 }
+

@@ -1,11 +1,10 @@
-import { useState } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
-import { weatherApi } from '@/api/weather.api';
-import type { WeatherData } from '@/types/weather';
+import type { WeatherMetricProps } from '@/types/weather';
+import { useWeather } from '@/hooks/use-weather';
 import {
   Search,
   MapPin,
@@ -16,83 +15,20 @@ import {
   Gauge,
   Eye,
   Sun,
-  Thermometer,
   Navigation
 } from 'lucide-react';
-import { toast } from 'sonner';
 
 export function WeatherPage() {
-  const [location, setLocation] = useState('');
-  const [weather, setWeather] = useState<WeatherData | null>(null);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
-  const [useGPS, setUseGPS] = useState(false);
-
-  const handleSearch = async () => {
-    if (!location.trim()) {
-      toast.error('Please enter a location');
-      return;
-    }
-
-    setLoading(true);
-    setError(null);
-    setUseGPS(false);
-
-    try {
-      const data = await weatherApi.getWeatherByLocation(location);
-      setWeather(data);
-      toast.success('Weather data loaded successfully');
-    } catch (err) {
-      const errorMessage = err instanceof Error ? err.message : 'Failed to fetch weather data';
-      setError(errorMessage);
-      toast.error(errorMessage);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const handleGPSLocation = async () => {
-    setLoading(true);
-    setError(null);
-    setLocation('');
-
-    if (!navigator.geolocation) {
-      const errorMsg = 'Geolocation is not supported by your browser';
-      setError(errorMsg);
-      toast.error(errorMsg);
-      setLoading(false);
-      return;
-    }
-
-    navigator.geolocation.getCurrentPosition(
-      async (position) => {
-        try {
-          const { latitude, longitude } = position.coords;
-          const data = await weatherApi.getWeatherByCoordinates(latitude, longitude);
-          setWeather(data);
-          setUseGPS(true);
-          toast.success('Weather data loaded from your location');
-        } catch (err) {
-          const errorMessage = err instanceof Error ? err.message : 'Failed to fetch weather data';
-          setError(errorMessage);
-          toast.error(errorMessage);
-        } finally {
-          setLoading(false);
-        }
-      },
-      (err) => {
-        const errorMsg = err.message || 'Failed to get your location. Please allow location access.';
-        setError(errorMsg);
-        toast.error(errorMsg);
-        setLoading(false);
-      },
-      {
-        enableHighAccuracy: true,
-        timeout: 10000,
-        maximumAge: 0,
-      }
-    );
-  };
+  const {
+    location,
+    setLocation,
+    weather,
+    loading,
+    error,
+    useGPS,
+    handleSearch,
+    handleGPSLocation
+  } = useWeather();
 
   return (
     <div className="container py-10">
@@ -129,7 +65,7 @@ export function WeatherPage() {
                   className="pl-9"
                 />
               </div>
-              <Button onClick={handleSearch} disabled={loading}>
+              <Button onClick={() => handleSearch()} disabled={loading}>
                 {loading ? (
                   <Loader2 className="h-4 w-4 animate-spin" />
                 ) : (
@@ -291,12 +227,6 @@ export function WeatherPage() {
       </div>
     </div>
   );
-}
-
-interface WeatherMetricProps {
-  icon: React.ReactNode;
-  label: string;
-  value: string;
 }
 
 function WeatherMetric({ icon, label, value }: WeatherMetricProps) {

@@ -1,33 +1,21 @@
-import { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { ThemeToggle } from '@/components/theme-toggle';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import {
   Menu,
-  X,
-  BookOpen,
-  Cloud,
   Github,
   ChevronRight
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
-
-const navItems = [
-  { path: '/docs', label: 'Documentation', icon: BookOpen },
-  { path: '/weather', label: 'Weather', icon: Cloud },
-];
+import { useNavigation } from '@/hooks/use-navigation';
+import { useToggle } from '@/hooks/use-toggle';
+import { navItems } from '@/constants/Navigation';
 
 export function Navbar() {
-  const location = useLocation();
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { isActive } = useNavigation();
+  const [mobileMenuOpen, , setMobileMenuOpen] = useToggle(false);
 
-  const isActive = (path: string) => {
-    if (path === '/docs') {
-      return location.pathname.startsWith('/docs');
-    }
-    return location.pathname === path;
-  };
 
   return (
     <header className="sticky flex top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -49,7 +37,7 @@ export function Navbar() {
                 to={item.path}
                 className={cn(
                   "transition-colors hover:text-foreground/80",
-                  isActive(item.path)
+                  isActive(item.path, item.path !== '/docs')
                     ? "text-foreground font-medium"
                     : "text-foreground/60"
                 )}
@@ -88,7 +76,7 @@ export function Navbar() {
                       onClick={() => setMobileMenuOpen(false)}
                       className={cn(
                         "flex items-center gap-2 text-sm transition-colors",
-                        isActive(item.path)
+                        isActive(item.path, item.path !== '/docs')
                           ? "text-foreground font-medium"
                           : "text-muted-foreground hover:text-foreground"
                       )}

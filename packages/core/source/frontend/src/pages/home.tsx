@@ -13,6 +13,8 @@ import {
   Github,
   ExternalLink
 } from 'lucide-react';
+import type { FeatureCardProps, QuickLinkCardProps } from '@/types/docs';
+import { HERO_TECH_STACK } from '@/constants/TechStack';
 
 export function HomePage() {
   return (
@@ -74,7 +76,7 @@ export function HomePage() {
 
           {/* Tech Stack Badges */}
           <div className="mt-4 flex flex-wrap justify-center gap-2">
-            {['React 19', 'TypeScript', 'Tailwind CSS 4', 'Express', 'Vite'].map((tech) => (
+            {HERO_TECH_STACK.map((tech) => (
               <Badge key={tech} variant="outline" className="rounded-full">
                 {tech}
               </Badge>
@@ -132,13 +134,6 @@ export function HomePage() {
   );
 }
 
-// Feature Card Component
-interface FeatureCardProps {
-  icon: React.ReactNode;
-  title: string;
-  description: string;
-}
-
 function FeatureCard({ icon, title, description }: FeatureCardProps) {
   return (
     <div className="group relative overflow-hidden rounded-lg border bg-background p-6 transition-all hover:shadow-md">
@@ -155,15 +150,6 @@ function FeatureCard({ icon, title, description }: FeatureCardProps) {
       </div>
     </div>
   );
-}
-
-// Quick Link Card Component
-interface QuickLinkCardProps {
-  title: string;
-  description: string;
-  href: string;
-  icon: React.ReactNode;
-  external?: boolean;
 }
 
 function QuickLinkCard({ title, description, href, icon, external }: QuickLinkCardProps) {

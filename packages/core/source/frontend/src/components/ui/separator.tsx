@@ -1,13 +1,8 @@
 import * as React from "react"
 import { cn } from "@/lib/utils"
+import type { SeparatorProps } from "@/types/ui"
 
-const Separator = React.forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement> & {
-    orientation?: "horizontal" | "vertical"
-    decorative?: boolean
-  }
->(
+const Separator = React.forwardRef<HTMLDivElement, SeparatorProps>(
   (
     { className, orientation = "horizontal", decorative = true, ...props },
     ref
@@ -28,4 +23,3 @@ const Separator = React.forwardRef<
 Separator.displayName = "Separator"
 
 export { Separator }
-

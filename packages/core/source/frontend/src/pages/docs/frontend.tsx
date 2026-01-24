@@ -3,8 +3,10 @@ import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
 import { CodeBlock } from '@/components/ui/code-block';
 import { ArrowLeft, ArrowRight, Palette, Zap, Layout, Shield } from 'lucide-react';
+import type { TechCardProps, FeatureCardProps } from '@/types/docs';
 
 export function FrontendPage() {
+
   return (
     <div className="space-y-6">
       {/* Breadcrumb */}
@@ -232,13 +234,6 @@ export const weatherApi = {
   );
 }
 
-interface TechCardProps {
-  icon: React.ReactNode;
-  title: string;
-  description: string;
-  color: string;
-}
-
 function TechCard({ icon, title, description, color }: TechCardProps) {
   return (
     <div className="flex items-start gap-3 rounded-lg border bg-card p-4">
@@ -253,11 +248,6 @@ function TechCard({ icon, title, description, color }: TechCardProps) {
   );
 }
 
-interface FeatureCardProps {
-  title: string;
-  description: string;
-}
-
 function FeatureCard({ title, description }: FeatureCardProps) {
   return (
     <div className="rounded-lg border bg-card p-4">
@@ -266,3 +256,4 @@ function FeatureCard({ title, description }: FeatureCardProps) {
     </div>
   );
 }
+

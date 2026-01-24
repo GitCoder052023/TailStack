@@ -2,8 +2,10 @@ import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
 import { ArrowLeft, ArrowRight, Layers, Workflow, ArrowDown } from 'lucide-react';
+import type { PatternCardProps, FlowStepProps } from '@/types/docs';
 
 export function ArchitecturePage() {
+
   return (
     <div className="space-y-6">
       {/* Breadcrumb */}
@@ -200,11 +202,6 @@ export function ArchitecturePage() {
   );
 }
 
-interface PatternCardProps {
-  title: string;
-  description: string;
-}
-
 function PatternCard({ title, description }: PatternCardProps) {
   return (
     <div className="rounded-lg border bg-card p-4">
@@ -212,12 +209,6 @@ function PatternCard({ title, description }: PatternCardProps) {
       <p className="text-sm text-muted-foreground">{description}</p>
     </div>
   );
-}
-
-interface FlowStepProps {
-  number: number;
-  title: string;
-  children: React.ReactNode;
 }
 
 function FlowStep({ number, title, children }: FlowStepProps) {
@@ -233,6 +224,7 @@ function FlowStep({ number, title, children }: FlowStepProps) {
     </div>
   );
 }
+
 
 function FlowArrow() {
   return (

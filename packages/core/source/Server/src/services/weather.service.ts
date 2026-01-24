@@ -1,9 +1,6 @@
 import axios from 'axios';
 import { WeatherData } from '../types/weather';
-
-// Using wttr.in - a free weather service that works with simple GET requests
-// No API key required, perfect for demo purposes
-const WEATHER_API_BASE_URL = 'https://wttr.in';
+import { WEATHER_CONFIG } from '../config/weather';
 
 export class WeatherService {
   /**
@@ -13,7 +10,8 @@ export class WeatherService {
   static async getWeatherByLocation(location: string): Promise<WeatherData> {
     try {
       const response = await axios.get(
-        `${WEATHER_API_BASE_URL}/${encodeURIComponent(location)}`,
+        `${WEATHER_CONFIG.BASE_URL}/${encodeURIComponent(location)}`,
+
         {
           params: {
             format: 'j1', // JSON format
@@ -74,7 +72,8 @@ export class WeatherService {
   static async getWeatherByCoordinates(lat: number, lon: number): Promise<WeatherData> {
     try {
       const response = await axios.get(
-        `${WEATHER_API_BASE_URL}/${lat},${lon}`,
+        `${WEATHER_CONFIG.BASE_URL}/${lat},${lon}`,
+
         {
           params: {
             format: 'j1', // JSON format

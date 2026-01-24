@@ -3,8 +3,11 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
 import { ArrowRight, BookOpen, Layers, Code2, Server } from 'lucide-react';
+import type { DocLinkCardProps } from '@/types/docs';
+import { ALL_TECH_STACK } from '@/constants/TechStack';
 
 export function DocsOverview() {
+
   return (
     <div className="space-y-6">
       {/* Breadcrumb */}
@@ -54,16 +57,13 @@ export function DocsOverview() {
           TailStack uses the following technologies:
         </p>
         <div className="flex flex-wrap gap-2">
-          <Badge className="rounded-full">React 19</Badge>
-          <Badge className="rounded-full">TypeScript</Badge>
-          <Badge className="rounded-full">Tailwind CSS 4</Badge>
-          <Badge className="rounded-full">shadcn/ui</Badge>
-          <Badge className="rounded-full">Vite</Badge>
-          <Badge className="rounded-full">Express</Badge>
-          <Badge className="rounded-full">Node.js</Badge>
-          <Badge className="rounded-full">React Router</Badge>
-          <Badge className="rounded-full">Axios</Badge>
+          {ALL_TECH_STACK.map((tech) => (
+            <Badge key={tech} className="rounded-full">
+              {tech}
+            </Badge>
+          ))}
         </div>
+
       </div>
 
       {/* Quick Links */}
@@ -114,13 +114,6 @@ export function DocsOverview() {
   );
 }
 
-interface DocLinkCardProps {
-  title: string;
-  description: string;
-  href: string;
-  icon: React.ReactNode;
-}
-
 function DocLinkCard({ title, description, href, icon }: DocLinkCardProps) {
   return (
     <Link
@@ -137,3 +130,4 @@ function DocLinkCard({ title, description, href, icon }: DocLinkCardProps) {
     </Link>
   );
 }
+
