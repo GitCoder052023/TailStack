@@ -1,63 +1,96 @@
-import { Link, Outlet } from 'react-router-dom';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { 
-  BookOpen, 
-  Settings, 
-  Layers,
-  Server,
-  Globe
-} from 'lucide-react';
+import { Link, Outlet, useLocation } from 'react-router-dom';
+import { ScrollArea } from '@/components/ui/scroll-area';
+import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import { Menu } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { useLocation } from 'react-router-dom';
-
-const docsSections = [
-  { path: '/docs', label: 'Overview', icon: BookOpen },
-  { path: '/docs/getting-started', label: 'Getting Started', icon: Settings },
-  { path: '/docs/architecture', label: 'Architecture', icon: Layers },
-  { path: '/docs/frontend', label: 'Frontend', icon: Globe },
-  { path: '/docs/backend', label: 'Backend', icon: Server },
-];
+import { useState } from 'react';
+import { docsSections } from '@/constants/DocsSections';
 
 export function DocsPage() {
   const location = useLocation();
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+
+  const isActive = (path: string) => location.pathname === path;
+
+  const SidebarContent = () => (
+    <div className="w-full ml-5">
+      <div className="pb-4">
+        <h4 className="mb-1 rounded-md px-2 py-1 text-sm font-semibold">
+          Getting Started
+        </h4>
+        <div className="grid grid-flow-row auto-rows-max text-sm">
+          {docsSections.slice(0, 2).map((section) => (
+            <Link
+              key={section.path}
+              to={section.path}
+              onClick={() => setSidebarOpen(false)}
+              className={cn(
+                "group flex w-full items-center rounded-md border border-transparent px-2 py-1.5 hover:underline",
+                isActive(section.path)
+                  ? "font-medium text-foreground"
+                  : "text-muted-foreground"
+              )}
+            >
+              {section.label}
+            </Link>
+          ))}
+        </div>
+      </div>
+      <div className="pb-4">
+        <h4 className="mb-1 rounded-md px-2 py-1 text-sm font-semibold">
+          Guides
+        </h4>
+        <div className="grid grid-flow-row auto-rows-max text-sm">
+          {docsSections.slice(2).map((section) => (
+            <Link
+              key={section.path}
+              to={section.path}
+              onClick={() => setSidebarOpen(false)}
+              className={cn(
+                "group flex w-full items-center rounded-md border border-transparent px-2 py-1.5 hover:underline",
+                isActive(section.path)
+                  ? "font-medium text-foreground"
+                  : "text-muted-foreground"
+              )}
+            >
+              {section.label}
+            </Link>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
 
   return (
-    <div className="grid gap-6 md:grid-cols-[250px_1fr] lg:grid-cols-[300px_1fr]">
-      {/* Sidebar */}
-      <aside className="space-y-2">
-        <Card>
-          <CardHeader>
-            <CardTitle className="text-lg">Documentation</CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-1">
-            {docsSections.map((section) => {
-              const Icon = section.icon;
-              const isActive = location.pathname === section.path;
-              return (
-                <Link key={section.path} to={section.path}>
-                  <Button
-                    variant={isActive ? 'secondary' : 'ghost'}
-                    className={cn(
-                      'w-full justify-start gap-2',
-                      isActive && 'bg-secondary'
-                    )}
-                  >
-                    <Icon className="h-4 w-4" />
-                    {section.label}
-                  </Button>
-                </Link>
-              );
-            })}
-          </CardContent>
-        </Card>
-      </aside>
+    <div className="container flex-1">
+      <div className="flex-1 md:grid md:grid-cols-[220px_minmax(0,1fr)] md:gap-6 lg:grid-cols-[240px_minmax(0,1fr)] lg:gap-10">
+        {/* Mobile Sidebar Toggle */}
+        <Sheet open={sidebarOpen} onOpenChange={setSidebarOpen}>
+          <SheetTrigger className="inline-flex items-center justify-center rounded-md font-medium transition-colors focus-visible:outline-none focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 border border-input hover:bg-accent hover:text-accent-foreground h-9 px-4 py-2 md:hidden fixed bottom-4 right-4 z-40 shadow-lg bg-background">
+            <Menu className="h-4 w-4 mr-2" />
+            Menu
+          </SheetTrigger>
+          <SheetContent side="left" className="w-[240px] pr-0">
+            <ScrollArea className="my-4 h-[calc(100vh-8rem)] pb-10">
+              <SidebarContent />
+            </ScrollArea>
+          </SheetContent>
+        </Sheet>
 
-      {/* Content */}
-      <div className="min-w-0">
-        <Outlet />
+        {/* Desktop Sidebar */}
+        <aside className="fixed top-14 z-30 -ml-2 hidden h-[calc(100vh-3.5rem)] w-full shrink-0 md:sticky md:block">
+          <ScrollArea className="h-full py-6 pr-6 lg:py-8">
+            <SidebarContent />
+          </ScrollArea>
+        </aside>
+
+        {/* Main Content */}
+        <main className="relative py-6 lg:gap-10 lg:py-8">
+          <div className="mx-auto w-full min-w-0">
+            <Outlet />
+          </div>
+        </main>
       </div>
     </div>
   );
 }
-

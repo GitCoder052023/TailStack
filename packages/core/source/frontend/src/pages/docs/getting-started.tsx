@@ -1,12 +1,25 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Link } from 'react-router-dom';
 import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
+import { CodeBlock } from '@/components/ui/code-block';
+import { ArrowLeft, ArrowRight, AlertCircle, CheckCircle2 } from 'lucide-react';
 
 export function GettingStartedPage() {
   return (
-    <div className="space-y-8 max-w-4xl">
-      <div className="space-y-4">
-        <h1 className="text-4xl font-bold">Getting Started</h1>
+    <div className="space-y-6">
+      {/* Breadcrumb */}
+      <div className="flex items-center gap-1 text-sm text-muted-foreground">
+        <Link to="/docs" className="hover:text-foreground">Docs</Link>
+        <span>/</span>
+        <span className="text-foreground">Getting Started</span>
+      </div>
+
+      {/* Title */}
+      <div className="space-y-2">
+        <h1 className="scroll-m-20 text-4xl font-bold tracking-tight">
+          Getting Started
+        </h1>
         <p className="text-lg text-muted-foreground">
           Follow these steps to set up your development environment and start building
           with TailStack.
@@ -15,113 +28,179 @@ export function GettingStartedPage() {
 
       <Separator />
 
-      <section className="space-y-4">
-        <h2 className="text-2xl font-semibold">Prerequisites</h2>
-        <Card>
-          <CardHeader>
-            <CardTitle>Required Tools</CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-2">
-            <p>Make sure you have the following installed:</p>
-            <ul className="list-disc list-inside space-y-1 text-muted-foreground">
-              <li>Node.js (v18 or higher)</li>
-              <li>pnpm (v10 or higher) - recommended package manager</li>
-              <li>Git</li>
-              <li>Code editor (VS Code recommended)</li>
-            </ul>
-          </CardContent>
-        </Card>
-      </section>
+      {/* Prerequisites */}
+      <div className="space-y-4">
+        <h2 className="scroll-m-20 border-b pb-2 text-2xl font-semibold tracking-tight">
+          Prerequisites
+        </h2>
+        <p className="leading-7">
+          Before you begin, make sure you have the following installed on your system:
+        </p>
+        <div className="rounded-lg border bg-card p-4">
+          <ul className="space-y-3">
+            <PrerequisiteItem checked>
+              <span className="font-medium">Node.js</span> (v18 or higher)
+            </PrerequisiteItem>
+            <PrerequisiteItem checked>
+              <span className="font-medium">pnpm</span> (v10 or higher) - recommended package manager
+            </PrerequisiteItem>
+            <PrerequisiteItem checked>
+              <span className="font-medium">Git</span> - for version control
+            </PrerequisiteItem>
+          </ul>
+        </div>
+      </div>
 
-      <Separator />
+      {/* Installation */}
+      <div className="space-y-4">
+        <div className="space-y-3">
+          <h3 className="scroll-m-20 text-xl font-semibold tracking-tight">
+            1. Install Dependencies
+          </h3>
+          <p className="leading-7">
+            Navigate to root directory and install all dependencies:
+          </p>
+          <CodeBlock
+            code="pnpm install"
+            language="bash"
+          />
+        </div>
 
-      <section className="space-y-4">
-        <h2 className="text-2xl font-semibold">Installation</h2>
-        <Card>
-          <CardHeader>
-            <CardTitle>Step 1: Install Dependencies</CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            <p>Navigate to the core package directory and install dependencies:</p>
-            <pre className="bg-muted p-4 rounded-md overflow-x-auto">
-              <code>cd packages/core{'\n'}pnpm install</code>
-            </pre>
-          </CardContent>
-        </Card>
-
-        <Card>
-          <CardHeader>
-            <CardTitle>Step 2: Start Development Servers</CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            <p>Run both frontend and backend concurrently:</p>
-            <pre className="bg-muted p-4 rounded-md overflow-x-auto">
-              <code>pnpm dev</code>
-            </pre>
-            <p className="text-sm text-muted-foreground">
-              This will start:
+        <div className="space-y-3">
+          <h3 className="scroll-m-20 text-xl font-semibold tracking-tight">
+            2. Start Development Servers
+          </h3>
+          <CodeBlock
+            code="pnpm dev"
+            language="bash"
+          />
+          <div className="rounded-lg border bg-muted/50 p-4 mt-4">
+            <p className="text-sm text-muted-foreground mb-3">
+              This will start both servers:
             </p>
-            <ul className="list-disc list-inside space-y-1 text-sm text-muted-foreground">
-              <li>Frontend at <Badge variant="outline">http://localhost:5173</Badge></li>
-              <li>Backend at <Badge variant="outline">http://localhost:5000</Badge></li>
-            </ul>
-          </CardContent>
-        </Card>
-      </section>
+            <div className="space-y-2">
+              <div className="flex items-center gap-2">
+                <Badge variant="outline" className="font-mono">Frontend</Badge>
+                <span className="text-sm text-muted-foreground">→</span>
+                <code className="relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm">
+                  http://localhost:5173
+                </code>
+              </div>
+              <div className="flex items-center gap-2">
+                <Badge variant="outline" className="font-mono">Backend</Badge>
+                <span className="text-sm text-muted-foreground">→</span>
+                <code className="relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm">
+                  http://localhost:5000
+                </code>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
-      <Separator />
-
-      <section className="space-y-4">
-        <h2 className="text-2xl font-semibold">Project Structure</h2>
-        <Card>
-          <CardHeader>
-            <CardTitle>Directory Layout</CardTitle>
-            <CardDescription>
-              Understanding the project organization
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
-            <pre className="bg-muted p-4 rounded-md overflow-x-auto text-sm">
-              <code>{`core/
+      {/* Project Structure */}
+      <div className="space-y-4">
+        <h2 className="scroll-m-20 border-b pb-2 text-2xl font-semibold tracking-tight">
+          Project Structure
+        </h2>
+        <p className="leading-7">
+          Here's an overview of the project directory layout:
+        </p>
+        <CodeBlock
+          code={`core/
 ├── source/
-│   ├── frontend/     # React + Vite client
+│   ├── frontend/          # React + Vite client
 │   │   └── src/
-│   │       ├── api/          # API client functions
-│   │       ├── components/   # React components
-│   │       ├── pages/        # Page components
-│   │       ├── hooks/        # Custom React hooks
-│   │       └── types/       # TypeScript types
-│   └── Server/       # Express + TypeScript server
+│   │       ├── api/       # API client functions
+│   │       ├── components/# React components
+│   │       ├── pages/     # Page components
+│   │       ├── hooks/     # Custom React hooks
+│   │       └── types/     # TypeScript types
+│   └── Server/            # Express + TypeScript server
 │       └── src/
-│           ├── routes/      # API routes
-│           ├── controller/  # Route controllers
-│           ├── services/    # Business logic
-│           └── types/       # TypeScript types
-└── scripts/          # Automation scripts`}</code>
-            </pre>
-          </CardContent>
-        </Card>
-      </section>
+│           ├── routes/    # API routes
+│           ├── controller/# Route controllers
+│           ├── services/  # Business logic
+│           └── types/     # TypeScript types
+└── scripts/               # Automation scripts`}
+          language="plaintext"
+          showLineNumbers
+        />
+      </div>
 
+      {/* Next Steps */}
+      <div className="space-y-4">
+        <h2 className="scroll-m-20 border-b pb-2 text-2xl font-semibold tracking-tight">
+          Next Steps
+        </h2>
+        <p className="leading-7">
+          Now that you have TailStack running, here are some things you can explore:
+        </p>
+        <div className="grid gap-3">
+          <div className="flex items-start gap-3 rounded-lg border p-4">
+            <CheckCircle2 className="h-5 w-5 text-primary mt-0.5" />
+            <div>
+              <p className="font-medium">Try the Weather App</p>
+              <p className="text-sm text-muted-foreground">
+                See a complete full-stack example in action
+              </p>
+            </div>
+          </div>
+          <div className="flex items-start gap-3 rounded-lg border p-4">
+            <CheckCircle2 className="h-5 w-5 text-primary mt-0.5" />
+            <div>
+              <p className="font-medium">Review the Architecture</p>
+              <p className="text-sm text-muted-foreground">
+                Understand the design patterns and code organization
+              </p>
+            </div>
+          </div>
+          <div className="flex items-start gap-3 rounded-lg border p-4">
+            <CheckCircle2 className="h-5 w-5 text-primary mt-0.5" />
+            <div>
+              <p className="font-medium">Explore shadcn/ui Components</p>
+              <p className="text-sm text-muted-foreground">
+                Customize and extend the pre-built UI components
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Navigation */}
       <Separator />
-
-      <section className="space-y-4">
-        <h2 className="text-2xl font-semibold">Next Steps</h2>
-        <Card>
-          <CardHeader>
-            <CardTitle>Explore the Codebase</CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-2">
-            <ul className="list-disc list-inside space-y-1 text-muted-foreground">
-              <li>Check out the <Badge variant="outline">Weather App</Badge> to see a full-stack example</li>
-              <li>Review the <Badge variant="outline">Architecture</Badge> documentation</li>
-              <li>Explore the <Badge variant="outline">shadcn/ui</Badge> components</li>
-              <li>Read the <Badge variant="outline">API</Badge> documentation</li>
-            </ul>
-          </CardContent>
-        </Card>
-      </section>
+      <div className="flex items-center justify-between">
+        <Button variant="ghost" className="gap-2" asChild>
+          <Link to="/docs">
+            <ArrowLeft className="h-4 w-4" />
+            Introduction
+          </Link>
+        </Button>
+        <Button variant="ghost" className="gap-2" asChild>
+          <Link to="/docs/architecture">
+            Architecture
+            <ArrowRight className="h-4 w-4" />
+          </Link>
+        </Button>
+      </div>
     </div>
   );
 }
 
+interface PrerequisiteItemProps {
+  children: React.ReactNode;
+  checked?: boolean;
+}
+
+function PrerequisiteItem({ children, checked }: PrerequisiteItemProps) {
+  return (
+    <li className="flex items-center gap-3">
+      {checked ? (
+        <CheckCircle2 className="h-5 w-5 text-green-500" />
+      ) : (
+        <AlertCircle className="h-5 w-5 text-yellow-500" />
+      )}
+      <span className="text-sm">{children}</span>
+    </li>
+  );
+}
