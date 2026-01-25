@@ -106,7 +106,7 @@ export function GettingStartedPage() {
           Automation Scripts
         </h2>
         <p className="leading-7">
-          TailStack Core comes with powerful PowerShell scripts in the <code className="relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm">scripts/</code> folder to help manage the monorepo.
+          TailStack Core comes with powerful Automation scripts in the <code className="relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm">scripts/</code> folder to help manage the monorepo.
         </p>
 
         <div className="grid gap-4 sm:grid-cols-2">

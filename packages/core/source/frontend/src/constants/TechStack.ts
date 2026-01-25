@@ -10,5 +10,5 @@ export const ALL_TECH_STACK = [
   'Node.js',
   'React Router',
   'Axios',
-  'PowerShell Automation',
+  'Automation Scripts',
 ];

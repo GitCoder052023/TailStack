@@ -50,7 +50,7 @@ A robust and scalable server-side foundation:
 TailStack allows you to focus on code, not configuration:
 - **Commitlint**: Enforces Conventional Commits for clean history.
 - **Husky**: Git hooks for pre-commit linting and security checks.
-- **Automation Scripts**: Smart PowerShell utilities for high-velocity development (in `scripts/`):
+- **Automation Scripts**: Smart Automation utilities for high-velocity development (in `scripts/`):
   - `smart-clean.ps1`: Lightning-fast deep purge of `node_modules` and locks.
   - `smart-install.ps1`: parallel installer with intelligent CPU/RAM load monitoring.
 - **Documentation**: Ready-to-use `CONTRIBUTING.md`, `CODE_OF_CONDUCT.md`, and `SECURITY.md`.
@@ -76,7 +76,7 @@ A robust backend foundation using **Express + TypeScript**. It features advanced
 
 ### Automation Scripts
 
-TailStack includes advanced PowerShell scripts to manage your monorepo efficiently:
+TailStack includes advanced Automation scripts to manage your monorepo efficiently:
 
 #### 1. Smart Clean (`scripts/smart-clean.ps1`)
 A high-velocity two-phase purge that removes all `node_modules` and `pnpm-lock.yaml` files.

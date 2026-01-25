@@ -99,7 +99,7 @@ pnpm dev
 
 ### 🛠️ Automation Scripts
 
-TailStack Core includes advanced PowerShell scripts to manage your monorepo efficiently:
+TailStack Core includes advanced Automation scripts to manage your monorepo efficiently:
 
 #### 1. Smart Clean (`scripts/smart-clean.ps1`)
 A high-velocity two-phase purge that removes all `node_modules` and `pnpm-lock.yaml` files.
