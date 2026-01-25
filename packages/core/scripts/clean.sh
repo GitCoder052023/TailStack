@@ -138,12 +138,12 @@ if [[ "$key" == "y" || "$key" == "Y" ]]; then
     echo -e "\n${GREEN}Starting Smart Install...${NC}"
     # Adaptation: Checks for .sh script first, falls back to .ps1 if pwsh exists, 
     # to maintain "Functionality Replication" across OS types.
-    if [ -f "./scripts/smart-install.sh" ]; then
-        ./scripts/smart-install.sh
-    elif [ -f "./scripts/smart-install.ps1" ] && command -v pwsh &> /dev/null; then
-        pwsh ./scripts/smart-install.ps1
+    if [ -f "./scripts/install.sh" ]; then
+        ./scripts/install.sh
+    elif [ -f "./scripts/install.ps1" ] && command -v pwsh &> /dev/null; then
+        pwsh ./scripts/install.ps1
     else
-        echo -e "${RED}Error: ./scripts/smart-install.sh (or .ps1) not found!${NC}"
+        echo -e "${RED}Error: ./scripts/install.sh (or .ps1) not found!${NC}"
     fi
 else
     echo -e "\n${GRAY}Exiting.${NC}"

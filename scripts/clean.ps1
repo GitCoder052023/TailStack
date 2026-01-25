@@ -106,10 +106,10 @@ $key = $Host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")
 
 if ($key.Character -eq 'y') {
     Write-Host "`nStarting Smart Install..." -ForegroundColor Green
-    if (Test-Path ".\scripts\smart-install.ps1") {
-        & ".\scripts\smart-install.ps1"
+    if (Test-Path ".\scripts\install.ps1") {
+        & ".\scripts\install.ps1"
     } else {
-        Write-Host "Error: .\scripts\smart-install.ps1 not found!" -ForegroundColor Red
+        Write-Host "Error: .\scripts\install.ps1 not found!" -ForegroundColor Red
     }
 } else {
     Write-Host "`nExiting." -ForegroundColor Gray

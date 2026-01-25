@@ -112,7 +112,7 @@ export function GettingStartedPage() {
         <div className="grid gap-4 sm:grid-cols-2">
           <div className="rounded-lg border bg-card p-4">
             <h4 className="font-medium mb-1">Smart Clean</h4>
-            <p className="text-xs text-muted-foreground font-mono mb-2">./scripts/smart-clean.ps1</p>
+            <p className="text-xs text-muted-foreground font-mono mb-2">./scripts/clean.ps1</p>
             <p className="text-sm text-muted-foreground">
               Lightning-fast deep purge of all <code className="text-xs">node_modules</code> and locks. 
               Parallelized for speed and includes a verification loop to handle locked files.
@@ -120,7 +120,7 @@ export function GettingStartedPage() {
           </div>
           <div className="rounded-lg border bg-card p-4">
             <h4 className="font-medium mb-1">Smart Install</h4>
-            <p className="text-xs text-muted-foreground font-mono mb-2">./scripts/smart-install.ps1</p>
+            <p className="text-xs text-muted-foreground font-mono mb-2">./scripts/install.ps1</p>
             <p className="text-sm text-muted-foreground">
               Parallel dependency installer with intelligent CPU/RAM monitoring. 
               Automatically pauses during high system load to prevent crashes.
