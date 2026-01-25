@@ -50,7 +50,7 @@ A robust and scalable server-side foundation:
 TailStack allows you to focus on code, not configuration:
 - **Commitlint**: Enforces Conventional Commits for clean history.
 - **Husky**: Git hooks for pre-commit linting and security checks.
-- **Shell Scripts**: Automated utilities for repetitive tasks (in `scripts/`).
+- **Automation Scripts**: Cross-platform utilities for high-velocity development (in `scripts/`).
 - **Documentation**: Ready-to-use `CONTRIBUTING.md`, `CODE_OF_CONDUCT.md`, and `SECURITY.md`.
 - **Configs**: Standardized `.npmrc`, `.nvmrc`, and `.node-version` for consistent environments.
 
@@ -65,9 +65,11 @@ core/
 │   ├── CODE_OF_CONDUCT.md
 │   ├── CONTRIBUTING.md
 │   └── SECURITY.md
-├── scripts/                # Internal shell automation scripts
-│   ├── clean.ps1     # Lightning-fast node_modules purge
-│   └── install.ps1   #  parallel pnpm installer
+├── scripts/                # Cross-platform automation scripts
+│   ├── clean.ps1           # PowerShell: Lightning-fast node_modules purge
+│   ├── clean.sh            # Shell: Lightning-fast node_modules purge
+│   ├── install.ps1         # PowerShell: Parallel pnpm installer
+│   └── install.sh          # Shell: Parallel pnpm installer
 ├── source/
 │   ├── frontend/           # The Vite+React Client Application
 │   │   ├── src/
@@ -99,17 +101,17 @@ pnpm dev
 
 ### 🛠️ Automation Scripts
 
-TailStack Core includes advanced Automation scripts to manage your monorepo efficiently:
+TailStack Core includes advanced, cross-platform automation scripts to manage your monorepo efficiently. Both PowerShell (`.ps1`) and Bash (`.sh`) versions are provided.
 
-#### 1. Smart Clean (`scripts/clean.ps1`)
+#### 1. Smart Clean (`clean.ps1` / `clean.sh`)
 A high-velocity two-phase purge that removes all `node_modules` and `pnpm-lock.yaml` files.
 - **Speed**: Uses parallel processing for faster deletion.
 - **Reliability**: Forcefully kills locking processes (Node, VS Code) and uses a 3-retry verification loop for stubborn files.
 
-#### 2. Smart Install (`scripts/install.ps1`)
-A  parallel installer designed for stability on any hardware.
+#### 2. Smart Install (`install.ps1` / `install.sh`)
+A parallel installer designed for stability on any hardware.
 - **Parallelism**: Installs dependencies for all projects in the monorepo concurrently.
-- **Load Monitoring**: Intelligent state machine that monitors CPU and RAM. It automatically suspends installation processes if system load exceeds 90% and resumes when it drops below 75%.
+- **Load Monitoring**: An intelligent state machine monitors CPU and RAM, automatically suspending installation processes if system load exceeds 90% and resuming when it drops below 75%.
 - **Anti-Crash**: Prevents system hangs during heavy dependency resolution.
 
 ## 🤝 Contributing

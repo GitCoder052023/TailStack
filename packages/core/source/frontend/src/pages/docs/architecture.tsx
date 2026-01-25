@@ -123,7 +123,11 @@ export function ArchitecturePage() {
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li className="flex items-center gap-2">
                 <div className="h-1.5 w-1.5 rounded-full bg-foreground/40" />
-                Smart Clean: Parallel node_modules purge
+                Cross-platform (PowerShell & Bash)
+              </li>
+              <li className="flex items-center gap-2">
+                <div className="h-1.5 w-1.5 rounded-full bg-foreground/40" />
+                Smart Clean: Parallel `node_modules` purge
               </li>
               <li className="flex items-center gap-2">
                 <div className="h-1.5 w-1.5 rounded-full bg-foreground/40" />
@@ -131,11 +135,7 @@ export function ArchitecturePage() {
               </li>
               <li className="flex items-center gap-2">
                 <div className="h-1.5 w-1.5 rounded-full bg-foreground/40" />
-                Load-aware state management
-              </li>
-              <li className="flex items-center gap-2">
-                <div className="h-1.5 w-1.5 rounded-full bg-foreground/40" />
-                Automated lock process handling
+                Intelligent load monitoring (CPU & RAM)
               </li>
             </ul>
           </div>
