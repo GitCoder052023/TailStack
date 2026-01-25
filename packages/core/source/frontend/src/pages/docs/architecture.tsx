@@ -108,7 +108,39 @@ export function ArchitecturePage() {
               </li>
             </ul>
           </div>
+
+          {/* Automation Scripts */}
+          <div className="rounded-lg border bg-card p-6">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-purple-500/10 text-purple-500">
+                <Workflow className="h-5 w-5" />
+              </div>
+              <div>
+                <h3 className="font-semibold">Automation Scripts</h3>
+                <p className="text-xs text-muted-foreground font-mono">scripts/</p>
+              </div>
+            </div>
+            <ul className="space-y-2 text-sm text-muted-foreground">
+              <li className="flex items-center gap-2">
+                <div className="h-1.5 w-1.5 rounded-full bg-foreground/40" />
+                Smart Clean: Parallel node_modules purge
+              </li>
+              <li className="flex items-center gap-2">
+                <div className="h-1.5 w-1.5 rounded-full bg-foreground/40" />
+                Smart Install: Parallel pnpm orchestration
+              </li>
+              <li className="flex items-center gap-2">
+                <div className="h-1.5 w-1.5 rounded-full bg-foreground/40" />
+                Load-aware state management
+              </li>
+              <li className="flex items-center gap-2">
+                <div className="h-1.5 w-1.5 rounded-full bg-foreground/40" />
+                Automated lock process handling
+              </li>
+            </ul>
+          </div>
         </div>
+
       </div>
 
       {/* Design Patterns */}

@@ -65,7 +65,9 @@ core/
 │   ├── CODE_OF_CONDUCT.md
 │   ├── CONTRIBUTING.md
 │   └── SECURITY.md
-├── scripts/                # internal shell automation scripts
+├── scripts/                # Internal shell automation scripts
+│   ├── smart-clean.ps1     # Lightning-fast node_modules purge
+│   └── smart-install.ps1   #  parallel pnpm installer
 ├── source/
 │   ├── frontend/           # The Vite+React Client Application
 │   │   ├── src/
@@ -84,7 +86,7 @@ core/
 
 ## Getting Started
 
-### Running the Application
+### 🚀 Development
 
 To start both the client and server concurrently in development mode:
 
@@ -93,7 +95,22 @@ pnpm dev
 ```
 
 - **Frontend**: Accessible at `http://localhost:5173`
-- **Backend**: API server running on `http://localhost:5000` (or your configured port)
+- **Backend**: API server running on `http://localhost:5000`
+
+### 🛠️ Automation Scripts
+
+TailStack Core includes advanced PowerShell scripts to manage your monorepo efficiently:
+
+#### 1. Smart Clean (`scripts/smart-clean.ps1`)
+A high-velocity two-phase purge that removes all `node_modules` and `pnpm-lock.yaml` files.
+- **Speed**: Uses parallel processing for faster deletion.
+- **Reliability**: Forcefully kills locking processes (Node, VS Code) and uses a 3-retry verification loop for stubborn files.
+
+#### 2. Smart Install (`scripts/smart-install.ps1`)
+A  parallel installer designed for stability on any hardware.
+- **Parallelism**: Installs dependencies for all projects in the monorepo concurrently.
+- **Load Monitoring**: Intelligent state machine that monitors CPU and RAM. It automatically suspends installation processes if system load exceeds 90% and resumes when it drops below 75%.
+- **Anti-Crash**: Prevents system hangs during heavy dependency resolution.
 
 ## 🤝 Contributing
 

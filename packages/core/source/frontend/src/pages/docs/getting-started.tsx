@@ -78,7 +78,7 @@ export function GettingStartedPage() {
           />
           <div className="rounded-lg border bg-muted/50 p-4 mt-4">
             <p className="text-sm text-muted-foreground mb-3">
-              This will start both servers:
+              This will start both servers concurrently using pnpm filters:
             </p>
             <div className="space-y-2">
               <div className="flex items-center gap-2">
@@ -96,6 +96,35 @@ export function GettingStartedPage() {
                 </code>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Automation Scripts */}
+      <div className="space-y-4">
+        <h2 className="scroll-m-20 border-b pb-2 text-2xl font-semibold tracking-tight">
+          Automation Scripts
+        </h2>
+        <p className="leading-7">
+          TailStack Core comes with powerful PowerShell scripts in the <code className="relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm">scripts/</code> folder to help manage the monorepo.
+        </p>
+
+        <div className="grid gap-4 sm:grid-cols-2">
+          <div className="rounded-lg border bg-card p-4">
+            <h4 className="font-medium mb-1">Smart Clean</h4>
+            <p className="text-xs text-muted-foreground font-mono mb-2">./scripts/smart-clean.ps1</p>
+            <p className="text-sm text-muted-foreground">
+              Lightning-fast deep purge of all <code className="text-xs">node_modules</code> and locks. 
+              Parallelized for speed and includes a verification loop to handle locked files.
+            </p>
+          </div>
+          <div className="rounded-lg border bg-card p-4">
+            <h4 className="font-medium mb-1">Smart Install</h4>
+            <p className="text-xs text-muted-foreground font-mono mb-2">./scripts/smart-install.ps1</p>
+            <p className="text-sm text-muted-foreground">
+              Parallel dependency installer with intelligent CPU/RAM monitoring. 
+              Automatically pauses during high system load to prevent crashes.
+            </p>
           </div>
         </div>
       </div>

@@ -42,7 +42,7 @@ try {
 # 2. ROBUST HELPER FUNCTIONS
 # -------------------------------------------------------------------------
 
-function Get-BulletproofMetrics {
+function Get-Metrics {
     <#
     .DESCRIPTION
     Uses CIM/WMI instead of PerfCounters to ensure it works on ALL 
@@ -106,7 +106,7 @@ function Resume-JobTree ($ProcessObject) {
 # -------------------------------------------------------------------------
 
 try {
-    Write-Host "--- BULLETPROOF PNPM ORCHESTRATOR ---" -ForegroundColor Cyan
+    Write-Host "---  PNPM ORCHESTRATOR ---" -ForegroundColor Cyan
 
     # --- 3.1 Dependencies Check ---
     if (-not (Get-Command "pnpm" -ErrorAction SilentlyContinue)) {
@@ -146,7 +146,7 @@ try {
     while ($jobQueue.Count -gt 0 -or $runningJobs.Count -gt 0) {
         
         # A. Telemetry
-        $metrics = Get-BulletproofMetrics
+        $metrics = Get-Metrics
 
         # B. Clean up finished jobs
         # ToList() is used to safely iterate while modifying the original list
@@ -213,7 +213,7 @@ try {
                 
                 # Tiny buffer to let CPU register the new process load
                 Start-Sleep -Milliseconds 200
-                $metrics = Get-BulletproofMetrics # Update local metrics immediately
+                $metrics = Get-Metrics # Update local metrics immediately
             }
         }
 
