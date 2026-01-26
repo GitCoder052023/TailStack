@@ -21,8 +21,20 @@ TailStack comes supercharged with pre-configured **Agent Skills** to accelerate 
 Skills are reusable capabilities for AI agents. They provide procedural knowledge that helps agents accomplish specific tasks more effectively. Think of them as plugins or extensions that enhance what your AI agents can do, enabling them to write, refactor, and optimize code with greater precision and domain-specific expertise.
 
 #### Pre-configured Skills in TailStack
-1.  **Vercel React Best Practices**: A comprehensive performance optimization guide for React and Next.js applications, maintained by Vercel. It contains 57 rules across 8 categories, prioritized by impact to guide automated refactoring and code generation.
-2.  **Tailwind v4 + shadcn/ui Production Stack**: This skill enables AI agents to correctly generate, modify, and work with components from shadcn/ui and the new Tailwind CSS v4 engine. It understands the nuances of both technologies, ensuring idiomatic and production-quality results.
+1. **Vercel React Best Practices**: A comprehensive performance optimization guide for React and Next.js applications, maintained by Vercel. It contains 57 rules across 8 categories, prioritized by impact to guide automated refactoring and code generation.
+- **Official Docs**: [https://skills.sh/vercel-labs/agent-skills/vercel-react-best-practices](https://skills.sh/vercel-labs/agent-skills/vercel-react-best-practices)
+
+2. **Tailwind v4 + shadcn/ui Production Stack**: This skill enables AI agents to correctly generate, modify, and work with components from shadcn/ui and the new Tailwind CSS v4 engine. It understands the nuances of both technologies, ensuring idiomatic and production-quality results.
+
+- **Official Docs**: [https://skills.sh/jezweb/claude-skills/tailwind-v4-shadcn](https://skills.sh/jezweb/claude-skills/tailwind-v4-shadcn)
+
+#### Default Supported Agents 
+- Gemini
+- Claude
+- Codex
+- Cursor 
+- Opencode
+- Trae
 
 ## 📂 Structure
 
