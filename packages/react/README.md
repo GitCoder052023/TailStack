@@ -14,6 +14,16 @@ This is the standalone **React Frontend Architecture** template from TailStack. 
 - **React Router 7**: Robust routing for single-page applications.
 - **Sonner**: Opinionated toast notifications.
 
+### Agent Skills
+TailStack comes supercharged with pre-configured **Agent Skills** to accelerate AI-driven development.
+
+#### What are Agent Skills?
+Skills are reusable capabilities for AI agents. They provide procedural knowledge that helps agents accomplish specific tasks more effectively. Think of them as plugins or extensions that enhance what your AI agents can do, enabling them to write, refactor, and optimize code with greater precision and domain-specific expertise.
+
+#### Pre-configured Skills in TailStack
+1.  **Vercel React Best Practices**: A comprehensive performance optimization guide for React and Next.js applications, maintained by Vercel. It contains 57 rules across 8 categories, prioritized by impact to guide automated refactoring and code generation.
+2.  **Tailwind v4 + shadcn/ui Production Stack**: This skill enables AI agents to correctly generate, modify, and work with components from shadcn/ui and the new Tailwind CSS v4 engine. It understands the nuances of both technologies, ensuring idiomatic and production-quality results.
+
 ## 📂 Structure
 
 ```bash
