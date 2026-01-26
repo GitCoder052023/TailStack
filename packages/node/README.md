@@ -17,6 +17,7 @@ TailStack comes supercharged with pre-configured **Agent Skills** to accelerate 
 
 ### What are Agent Skills?
 Skills are reusable capabilities for AI agents. They provide procedural knowledge that helps agents accomplish specific tasks more effectively. Think of them as plugins or extensions that enhance what your AI agents can do, enabling them to write, refactor, and optimize code with greater precision and domain-specific expertise.
+- **Read More**: [https://skills.sh/docs](https://skills.sh/docs)
 
 ### Pre-configured Skills in TailStack
   
